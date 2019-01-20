@@ -3,10 +3,7 @@ package com.example.gajdaj.farmtest.di.component
 import android.content.Context
 
 import com.example.gajdaj.farmtest.application.FarmApplication
-import com.example.gajdaj.farmtest.di.module.ActivityModule
-import com.example.gajdaj.farmtest.di.module.FragmentModule
-import com.example.gajdaj.farmtest.di.module.PresenterModule
-import com.example.gajdaj.farmtest.di.module.RouterModule
+import com.example.gajdaj.farmtest.di.module.*
 
 import javax.inject.Singleton
 
@@ -19,6 +16,9 @@ import dagger.android.support.AndroidSupportInjectionModule
 @Component(modules = [
     ActivityModule::class,
     PresenterModule::class,
+    SchedulerModule::class,
+    RepositoryModule::class,
+    ApplicationModule::class,
     AndroidSupportInjectionModule::class])
 interface AppComponent : AndroidInjector<FarmApplication> {
 
