@@ -5,6 +5,8 @@ import android.content.Context
 import com.example.gajdaj.farmtest.application.FarmApplication
 import com.example.gajdaj.farmtest.di.module.ActivityModule
 import com.example.gajdaj.farmtest.di.module.FragmentModule
+import com.example.gajdaj.farmtest.di.module.PresenterModule
+import com.example.gajdaj.farmtest.di.module.RouterModule
 
 import javax.inject.Singleton
 
@@ -14,9 +16,9 @@ import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
 
 @Singleton
-@Component(modules = [ActivityModule::class,
-    FragmentModule::class,
+@Component(modules = [
     ActivityModule::class,
+    PresenterModule::class,
     AndroidSupportInjectionModule::class])
 interface AppComponent : AndroidInjector<FarmApplication> {
 

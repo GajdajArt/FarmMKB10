@@ -6,5 +6,5 @@ interface MainContract: BaseContract {
 
     interface View: BaseContract.View
 
-    interface Presenter<T> : BaseContract.Presenter<View>
+    interface Presenter : BaseContract.Presenter<View>
 }
