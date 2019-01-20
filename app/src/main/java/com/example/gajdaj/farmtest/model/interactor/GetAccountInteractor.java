@@ -1,4 +1,4 @@
 package com.example.gajdaj.farmtest.model.interactor;
 
-public class LoginInteractor {
+public class GetAccountInteractor {
 }

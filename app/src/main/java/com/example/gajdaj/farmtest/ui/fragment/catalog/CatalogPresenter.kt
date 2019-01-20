@@ -14,7 +14,7 @@ class CatalogPresenter
 
         val list = ArrayList<Section>()
         list.add(Section("l;k", "lkl;", ArrayList()))
-        view.showList(list)
+        view?.showList(list)
     }
 
     override fun onItemClick(section: Section) {

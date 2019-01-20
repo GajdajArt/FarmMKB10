@@ -1,4 +1,4 @@
-package com.example.gajdaj.farmtest.implementation
+package com.example.gajdaj.farmtest.implementation.router
 
 import com.example.gajdaj.farmtest.ui.fragment.catalog.CatalogRouter
 import com.example.gajdaj.farmtest.ui.router.BaseRouter
