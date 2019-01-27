@@ -19,9 +19,9 @@ open class BasePresenter<V: BaseContract.View>: BaseContract.Presenter<V> {
     }
 
     override fun unbind() {
-        view = null
         disposeAll()
         onUnBind()
+        view = null
     }
 
     open fun onBind() {}
@@ -29,12 +29,9 @@ open class BasePresenter<V: BaseContract.View>: BaseContract.Presenter<V> {
     open fun onUnBind() {}
 
     protected fun processError(throwable: Throwable) {
+        view?.hideProgressDialog()
 
-        if (throwable is ConnectException) {
-            //connection error
-        } else {
-            view?.showUnknownError()
-        }
+        throwable.message?.let { view?.showMessage(it) }
     }
 
     protected fun subscribe(key: Int, disposable: Disposable) {

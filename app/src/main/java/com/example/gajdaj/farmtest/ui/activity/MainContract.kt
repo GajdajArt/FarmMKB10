@@ -6,5 +6,12 @@ interface MainContract: BaseContract {
 
     interface View: BaseContract.View
 
-    interface Presenter : BaseContract.Presenter<View>
+    interface Presenter : BaseContract.Presenter<View> {
+
+        fun onExitClick()
+
+        fun onCatalogClick()
+
+        fun onAccountClick()
+    }
 }

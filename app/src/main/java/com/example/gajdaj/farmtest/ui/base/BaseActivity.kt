@@ -2,7 +2,11 @@ package com.example.gajdaj.farmtest.ui.base
 
 import android.os.Bundle
 import android.support.annotation.LayoutRes
+import android.view.View
+import android.widget.Toast
+import com.example.gajdaj.farmtest.R
 import dagger.android.support.DaggerAppCompatActivity
+import kotlinx.android.synthetic.main.content_main.*
 
 abstract class BaseActivity : DaggerAppCompatActivity(), BaseContract.View {
 
@@ -15,21 +19,27 @@ abstract class BaseActivity : DaggerAppCompatActivity(), BaseContract.View {
         if (resId != 0) {
             setContentView(layoutRes)
         }
+
+        hideProgressDialog()
     }
 
     override fun showProgressDialog() {
-
+        loader?.let {
+            it.visibility = View.VISIBLE
+        }
     }
 
     override fun hideProgressDialog() {
-
+        loader?.let {
+            it.visibility = View.GONE
+        }
     }
 
     override fun showUnknownError() {
-
+        Toast.makeText(this, getString(R.string.error_mesage), Toast.LENGTH_SHORT).show()
     }
 
     override fun showMessage(message: String) {
-
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 }

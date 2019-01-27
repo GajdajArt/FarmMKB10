@@ -2,8 +2,10 @@ package com.example.gajdaj.farmtest.di.module
 
 import android.content.Context
 import com.example.gajdaj.farmtest.implementation.store.DiskAccountStoreImpl
+import com.example.gajdaj.farmtest.implementation.store.MKB10csvStoreImpl
 import com.example.gajdaj.farmtest.implementation.store.PreferenceManagerImpl
 import com.example.gajdaj.farmtest.model.store.AccountStore
+import com.example.gajdaj.farmtest.model.store.MKB10Store
 import com.example.gajdaj.farmtest.model.store.PreferenceManager
 import com.google.firebase.auth.FirebaseAuth
 import dagger.Binds
@@ -36,4 +38,7 @@ abstract class ApplicationModule {
 
     @Binds
     internal abstract fun provideAccountStore(accountStore: DiskAccountStoreImpl): AccountStore
+
+    @Binds
+    internal abstract fun provideMKB10Store(mcbMKB10csvStoreImpl: MKB10csvStoreImpl): MKB10Store
 }

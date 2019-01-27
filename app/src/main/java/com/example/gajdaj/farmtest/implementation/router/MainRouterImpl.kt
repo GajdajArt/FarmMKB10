@@ -11,7 +11,15 @@ import javax.inject.Inject
 
 class MainRouterImpl @Inject constructor(private val router: BaseRouter): MainRouter {
 
+    override fun openAccount() {
+        router.replaceScreen(Screens.ACCOUNT_FRAGMENT_KAY)
+    }
+
+    override fun openCatalog() {
+        router.replaceScreen(Screens.CATALOG_FRAGMENT_KAY)
+    }
+
     override fun openLogin() {
-        router.openScreen(Screens.LOGIN_FRAGMENT_KAY)
+        router.replaceScreen(Screens.LOGIN_FRAGMENT_KAY)
     }
 }

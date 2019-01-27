@@ -7,7 +7,11 @@ import io.reactivex.Single
 
 interface LoginRepository {
 
-    fun loginAccount(account: Account): Single<User>
+    fun loginAccount(account: Account, callBack: LoginCallBack): Completable
 
     fun sineOut(): Completable
+
+    interface LoginCallBack {
+        fun onLogin(user: User)
+    }
 }

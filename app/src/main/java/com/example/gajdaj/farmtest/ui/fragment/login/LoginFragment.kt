@@ -25,6 +25,11 @@ class LoginFragment : BaseFragment(), LoginContract.View {
 
         activity = getActivity() as MainActivity
         initButton()
+
+        title.setOnClickListener {
+            loginET.setText("gaydayartyom@gmail.com")
+            passwordET.setText("123456")
+        }
     }
 
     private fun initButton() {

@@ -1,10 +1,12 @@
 package com.example.gajdaj.farmtest.di.module
 
+import com.example.gajdaj.farmtest.implementation.router.AccountRouterImpl
 import com.example.gajdaj.farmtest.implementation.router.CatalogRouterImpl
 import com.example.gajdaj.farmtest.implementation.router.LoginRouterImpl
 import com.example.gajdaj.farmtest.implementation.router.MainRouterImpl
 import com.example.gajdaj.farmtest.ui.activity.MainActivity
 import com.example.gajdaj.farmtest.ui.activity.MainRouter
+import com.example.gajdaj.farmtest.ui.fragment.account.AccountRouter
 import com.example.gajdaj.farmtest.ui.fragment.catalog.CatalogRouter
 import com.example.gajdaj.farmtest.ui.fragment.login.LoginRouter
 import com.example.gajdaj.farmtest.ui.router.BaseRouter
@@ -32,4 +34,7 @@ abstract class RouterModule {
 
     @Binds
     abstract fun provideCatalogRouter(catalogRouterImpl: CatalogRouterImpl): CatalogRouter
+
+    @Binds
+    abstract fun provideAccountRouter(accountRouter: AccountRouterImpl): AccountRouter
 }

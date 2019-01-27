@@ -5,10 +5,9 @@ import com.example.gajdaj.farmtest.ui.base.BasePresenter
 import javax.inject.Inject
 
 class CatalogPresenter
-@Inject constructor():
+@Inject constructor(private val catalogRouter: CatalogRouter):
         BasePresenter<CatalogContract.View>(),
         CatalogContract.Presenter {
-
     override fun onBind() {
         super.onBind()
 
@@ -19,5 +18,9 @@ class CatalogPresenter
 
     override fun onItemClick(section: Section) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun onAccountHeaderClick() {
+        catalogRouter.openAccount()
     }
 }

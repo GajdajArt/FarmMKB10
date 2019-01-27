@@ -20,15 +20,19 @@ abstract class BaseFragment : DaggerFragment(), BaseContract.View {
     }
 
     override fun showProgressDialog() {
+        (activity as BaseActivity).showProgressDialog()
     }
 
     override fun hideProgressDialog() {
+        (activity as BaseActivity).hideProgressDialog()
     }
 
     override fun showUnknownError() {
+        (activity as BaseActivity).showUnknownError()
     }
 
     override fun showMessage(message: String) {
+        (activity as BaseActivity).showMessage(message)
     }
 
     protected fun showToast(message: String) {

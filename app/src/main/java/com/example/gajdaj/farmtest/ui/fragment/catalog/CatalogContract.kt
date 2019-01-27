@@ -13,5 +13,7 @@ interface CatalogContract {
     interface Presenter: BaseContract.Presenter<View> {
 
         fun onItemClick(section: Section)
+
+        fun onAccountHeaderClick();
     }
 }

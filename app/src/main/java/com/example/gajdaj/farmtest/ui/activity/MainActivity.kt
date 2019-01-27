@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import com.example.gajdaj.farmtest.R
+import com.example.gajdaj.farmtest.implementation.store.MKB10csvStoreImpl
 import com.example.gajdaj.farmtest.ui.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
@@ -36,13 +37,11 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
     override fun onStart() {
         super.onStart()
-
         presenter.bind(this)
     }
 
     override fun onStop() {
         super.onStop()
-
         presenter.unbind()
     }
 
@@ -58,36 +57,16 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.main, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.action_settings -> return true
-            else -> return super.onOptionsItemSelected(item)
-        }
-    }
-
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.nav_camera -> {
+            R.id.nav_catalog -> {
+                presenter.onCatalogClick()
             }
-            R.id.nav_gallery -> {
-
+            R.id.nav_account -> {
+                presenter.onAccountClick()
             }
-            R.id.nav_slideshow -> {
-
-            }
-            R.id.nav_manage -> {
-
-            }
-            R.id.nav_share -> {
-
-            }
-            R.id.nav_send -> {
-
+            R.id.nav_exit -> {
+                presenter.onExitClick()
             }
         }
 

@@ -2,6 +2,8 @@ package com.example.gajdaj.farmtest.di.module
 
 import com.example.gajdaj.farmtest.ui.activity.MainContract
 import com.example.gajdaj.farmtest.ui.activity.MainPresenter
+import com.example.gajdaj.farmtest.ui.fragment.account.AccountContract
+import com.example.gajdaj.farmtest.ui.fragment.account.AccountPresenter
 import com.example.gajdaj.farmtest.ui.fragment.catalog.CatalogContract
 import com.example.gajdaj.farmtest.ui.fragment.catalog.CatalogPresenter
 import com.example.gajdaj.farmtest.ui.fragment.login.LoginContract
@@ -20,4 +22,7 @@ abstract class PresenterModule {
 
     @Binds
     abstract fun catalogPresenter(catalogPresenter: CatalogPresenter): CatalogContract.Presenter
+
+    @Binds
+    abstract fun accountPresenter(accountPresenter: AccountPresenter): AccountContract.Presenter
 }

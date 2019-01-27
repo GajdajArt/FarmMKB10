@@ -7,4 +7,8 @@ package com.example.gajdaj.farmtest.ui.activity
 interface MainRouter {
 
     fun openLogin()
+
+    fun openCatalog()
+
+    fun openAccount()
 }

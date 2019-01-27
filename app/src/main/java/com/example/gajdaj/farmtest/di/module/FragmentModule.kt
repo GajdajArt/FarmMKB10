@@ -1,6 +1,7 @@
 package com.example.gajdaj.farmtest.di.module
 
 import com.example.gajdaj.farmtest.di.scope.FragmentScope
+import com.example.gajdaj.farmtest.ui.fragment.account.AccountFragment
 import com.example.gajdaj.farmtest.ui.fragment.catalog.CatalogFragment
 import com.example.gajdaj.farmtest.ui.fragment.login.LoginFragment
 import dagger.Module
@@ -16,4 +17,8 @@ abstract class FragmentModule {
     @ContributesAndroidInjector
     @FragmentScope
     abstract fun catalogFragment(): CatalogFragment
+
+    @ContributesAndroidInjector
+    @FragmentScope
+    abstract fun accountFragment(): AccountFragment
 }

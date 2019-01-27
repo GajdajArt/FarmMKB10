@@ -5,5 +5,5 @@ import org.jetbrains.annotations.Nullable
 class Section(val code: String,
               val description: String,
               @Nullable
-              val list: List<Section>) {
+              var list: List<Section>) {
 }

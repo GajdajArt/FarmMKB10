@@ -16,7 +16,7 @@ class LoginRepositoryImpl
 @Inject
 constructor(private val firebaseAuth: FirebaseAuth) : LoginRepository {
 
-    private lateinit var resulrSorce: Single<User>
+    private lateinit var callBack: LoginRepository.LoginCallBack
 
     override fun sineOut(): Completable {
         return Completable.fromCallable {
@@ -24,18 +24,19 @@ constructor(private val firebaseAuth: FirebaseAuth) : LoginRepository {
         }
     }
 
-    override fun loginAccount(account: Account): Single<User> {
-        return Single.fromCallable { signIn(account) }
-                .flatMap { resulrSorce }
+    override fun loginAccount(account: Account, callBack: LoginRepository.LoginCallBack): Completable {
+        this.callBack = callBack
+        return Completable.fromCallable { signIn(account) }
     }
 
     private fun signIn(account: Account) {
         firebaseAuth.signInWithEmailAndPassword(account.login, account.password)
                 .addOnCompleteListener {
-                    resulrSorce = if (it.isSuccessful) {
-                        Single.fromCallable { User(firebaseAuth.currentUser?.uid!!) }
+
+                    if (it.isSuccessful) {
+                        callBack.onLogin(User(firebaseAuth.currentUser?.uid!!))
                     } else {
-                        Single.error(Throwable())
+                        throw Throwable("Login Error")
                     }
                 }
     }

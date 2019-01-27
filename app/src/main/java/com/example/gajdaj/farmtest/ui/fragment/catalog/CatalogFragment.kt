@@ -13,6 +13,7 @@ import kotlinx.android.synthetic.main.fragment_catalog.*
 import javax.inject.Inject
 
 class CatalogFragment: BaseFragment(), CatalogContract.View {
+
     @Inject
     lateinit var presenter: CatalogContract.Presenter
 
@@ -25,6 +26,7 @@ class CatalogFragment: BaseFragment(), CatalogContract.View {
         super.onViewCreated(view, savedInstanceState)
 
         intRecyclerView()
+        initHeader()
     }
 
     override fun onStart() {
@@ -43,6 +45,12 @@ class CatalogFragment: BaseFragment(), CatalogContract.View {
             override fun onClick(section: Section) {
                 presenter.onItemClick(section)
             }
+        }
+    }
+
+    private fun initHeader() {
+        accountHeader.setOnClickListener {
+            presenter.onAccountHeaderClick()
         }
     }
 
